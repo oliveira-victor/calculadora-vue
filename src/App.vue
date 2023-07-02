@@ -1,6 +1,7 @@
 <script setup>
 const bgColor = () => {
-    document.querySelector('body').style.background = '#494949'
+    //document.querySelector('body').style.background = '#494949'
+    document.querySelector('body').style.backgroundImage = 'url(https://www.svgbackgrounds.com/wp-content/uploads/2021/05/square-versatiles-yellow-subtle-pattern.jpg)'
 }
 bgColor()
 </script>
@@ -29,6 +30,10 @@ bgColor()
         </div>
     </div>
 </div>
+    <footer>
+        Site desenvolvido por Victor F. Oliveira<br />
+        <a href="https://github.com/oliveira-victor" target="_blank">github.com/oliveira-victor</a>
+    </footer>
 </template>
 
 <style scoped>
@@ -47,12 +52,13 @@ bgColor()
     border-radius: 40px;
 }
 header {
-    background-color: #c4c4c4;
+    background-color: #222222;
+    color: #dbbf60;
     padding: 16px;
     border-radius: 40px 40px 0 0;
 }
 .main {
-    background-color: #e2e2e2;
+    background-color: #dbbf60;
     border-radius: 0 0 40px 40px;
 }
 form {
@@ -79,5 +85,19 @@ input  {
     font-weight: bold;
     margin-top: 10px;
     padding-bottom: 40px;
+}
+footer {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+footer a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #a11919;
+}
+footer a:hover {
+    text-decoration: underline;
 }
 </style>

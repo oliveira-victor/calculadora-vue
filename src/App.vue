@@ -81,7 +81,8 @@ function resultadoDaConta() {
     font-size: 24px;
 }
 .container {
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     margin: 10% auto;
     text-align: center;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.7);

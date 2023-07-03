@@ -17,7 +17,10 @@ function resultadoDaConta() {
     let { campo1, campo2 } = estado;
     const { filter } = estado;
 
-    if (campo1 === '') {
+    if (campo1 == '' && campo2 == '') {
+        campo1 = 0;
+        campo2 = 0;
+    } else if (campo1 === '') {
         campo1 = 0;
     } else if (campo2 === '') {
         campo2 = 0;

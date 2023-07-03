@@ -1,9 +1,22 @@
 <script setup>
+import { reactive } from 'vue';
+
+const estado = reactive ({
+    campo1: 0,
+    campo2: 0,
+})
+
 const bgColor = () => {
-    //document.querySelector('body').style.background = '#494949'
-    document.querySelector('body').style.backgroundImage = 'url(https://www.svgbackgrounds.com/wp-content/uploads/2021/05/square-versatiles-yellow-subtle-pattern.jpg)'
+    document.querySelector('body').style.background = '#494949'
+    document.querySelector('body').style.backgroundImage = 'url(https://www.svgbackgrounds.com/wp-content/uploads/2021/05/zig-zag-chevron-stripes-pattern.png)'
 }
 bgColor()
+
+function resultadoDaConta() {
+    const { campo1, campo2 } = estado;
+    return parseFloat(campo1) + parseFloat(campo2);
+}
+
 </script>
 
 <template>
@@ -13,8 +26,8 @@ bgColor()
     </header>
     <div class="main">
         <form>
-            <input required type="number" placeholder="0">
-            <input required type="number" placeholder="0">
+            <input type="number" placeholder="0" @keyup="evento => estado.campo1 = evento.target.value">
+            <input type="number" placeholder="0" @keyup="evento => estado.campo2 = evento.target.value">
             <select class="select">
                 <option value="adicao">Adição +</option>
                 <option value="subtração">Subtração -</option>
@@ -25,13 +38,14 @@ bgColor()
         <div class="results">
             O resultado da conta é:<br />
             <div class="number">
-                0
+                {{ resultadoDaConta() }}
             </div>
         </div>
     </div>
 </div>
     <footer>
         Site desenvolvido por Victor F. Oliveira<br />
+        Com VueJS<br />
         <a href="https://github.com/oliveira-victor" target="_blank">github.com/oliveira-victor</a>
     </footer>
 </template>
@@ -53,12 +67,12 @@ bgColor()
 }
 header {
     background-color: #222222;
-    color: #dbbf60;
+    color: #7abd66;
     padding: 16px;
     border-radius: 40px 40px 0 0;
 }
 .main {
-    background-color: #dbbf60;
+    background-color: #7abd66;
     border-radius: 0 0 40px 40px;
 }
 form {
@@ -95,7 +109,7 @@ footer {
 footer a {
     font-size: 18px;
     text-decoration: none;
-    color: #a11919;
+    color: #defd6d;
 }
 footer a:hover {
     text-decoration: underline;

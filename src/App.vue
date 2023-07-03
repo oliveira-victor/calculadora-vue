@@ -4,6 +4,7 @@ import { reactive } from 'vue';
 const estado = reactive ({
     campo1: 0,
     campo2: 0,
+    filter: 'adicao'
 })
 
 const bgColor = () => {
@@ -13,8 +14,25 @@ const bgColor = () => {
 bgColor()
 
 function resultadoDaConta() {
-    const { campo1, campo2 } = estado;
-    return parseFloat(campo1) + parseFloat(campo2);
+    let { campo1, campo2 } = estado;
+    const { filter } = estado;
+
+    if (campo1 === '') {
+        campo1 = 0;
+    } else if (campo2 === '') {
+        campo2 = 0;
+    }
+
+    switch (filter) {
+        case 'adicao':
+            return parseFloat(campo1) + parseFloat(campo2);
+        case 'subtracao':
+            return parseFloat(campo1) - parseFloat(campo2);
+        case 'multiplicacao':
+            return parseFloat(campo1) * parseFloat(campo2);
+        case 'divisao':
+            return parseFloat(campo1) / parseFloat(campo2);
+    }
 }
 
 </script>
@@ -28,9 +46,9 @@ function resultadoDaConta() {
         <form>
             <input type="number" placeholder="0" @keyup="evento => estado.campo1 = evento.target.value">
             <input type="number" placeholder="0" @keyup="evento => estado.campo2 = evento.target.value">
-            <select class="select">
+            <select @change="evento => estado.filter = evento.target.value" class="select">
                 <option value="adicao">Adição +</option>
-                <option value="subtração">Subtração -</option>
+                <option value="subtracao">Subtração -</option>
                 <option value="multiplicacao">Multiplicação *</option>
                 <option value="divisao">Divisão /</option>
             </select>

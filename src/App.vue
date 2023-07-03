@@ -33,10 +33,6 @@ function resultadoDaConta() {
         case 'divisao':
             return parseFloat(campo1) / parseFloat(campo2);
     }
-
-    if (filter != Number) {
-        alert('oieee')
-    }
 }
 
 </script>
